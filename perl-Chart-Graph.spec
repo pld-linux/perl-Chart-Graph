@@ -9,12 +9,12 @@ Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgr
 Summary(pl):	Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
 Name:		perl-Chart-Graph
 Version:	2.0
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-26
+BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{!?_with_tests:0}%{?_with_tests:1}
 BuildRequires:	XFree86-Xvfb
 BuildRequires:	gnuplot
@@ -42,11 +42,12 @@ wykresów: gnuplot, XRT i Xmgrace.
 %setup -q -n Chart-Graph-2
 
 %build
-echo gnuplot xmgrace | perl Makefile.PL
+echo gnuplot xmgrace | perl Makefile.PL \
+	INSTALLDIRS=vendor
 %{__make}
 
 # tests disabled by default as they require GUI
-%if %{!?_with_tests:0}%{?_with_tests:1}
+%if %{?_with_tests:1}0
 PATH="/usr/X11R6/bin:$PATH" %{__make} test
 %endif
 
@@ -61,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Change* TODO doc/*
-%{perl_sitelib}/%{pdir}/*.pm
-%{perl_sitelib}/%{pdir}/%{pnam}
+%{perl_vendorlib}/%{pdir}/*.pm
+%{perl_vendorlib}/%{pdir}/%{pnam}
 %{_mandir}/man3/*
