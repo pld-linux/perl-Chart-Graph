@@ -27,7 +27,7 @@ Provides:	perl(Chart::Graph::Xmgrace::Graph_Options)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	"perl(Base_Option)"
+%define		_noautoreq	'perl(Base_Option)'
 
 %description
 Graph.pm is a wrapper module that allows easy generation of graphs
@@ -55,7 +55,8 @@ PATH="/usr/X11R6/bin:$PATH" %{__make} test
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
