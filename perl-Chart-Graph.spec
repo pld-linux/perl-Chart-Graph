@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_tests - perform "make test"
+%bcond_with	tests	# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Chart
@@ -16,7 +16,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 # Source0-md5:	db4f6dbb05afcadb362cc37e7f49789a
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{!?_with_tests:0}%{?_with_tests:1}
+%if %{with tests}
 BuildRequires:	XFree86-Xvfb
 BuildRequires:	gnuplot
 BuildRequires:	grace
@@ -48,7 +48,7 @@ echo gnuplot xmgrace | perl Makefile.PL \
 %{__make}
 
 # tests disabled by default as they require GUI
-%if %{?_with_tests:1}0
+%if %{with tests}
 PATH="/usr/X11R6/bin:$PATH" %{__make} test
 %endif
 
