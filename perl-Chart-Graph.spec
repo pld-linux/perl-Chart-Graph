@@ -9,7 +9,7 @@ Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgr
 Summary(pl):	Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
 Name:		perl-Chart-Graph
 Version:	2.0
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
