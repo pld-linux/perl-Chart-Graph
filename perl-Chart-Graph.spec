@@ -35,7 +35,7 @@ within Perl. Currently Graph.pm supports three graphing packages,
 gnuplot, XRT, and Xmgrace.
 
 %description -l pl
-Graph.pm to modu³ obudowuj±cy pozwalajacy na ³atwe generowanie
+Graph.pm to modu³ obudowuj±cy pozwalaj±cy na ³atwe generowanie
 wykresów z poziomu Perla. Aktualnie obs³uguje trzy pakiety do
 wykresów: gnuplot, XRT i Xmgrace.
 
