@@ -1,6 +1,7 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+# _with_tests - perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Chart
 %define	pnam	Graph
@@ -8,19 +9,24 @@ Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgr
 Summary(pl):	Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
 Name:		perl-Chart-Graph
 Version:	2.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl >= 5.6
 BuildRequires:	rpm-perlprov >= 3.0.3-26
-%if %{?_without_tests:0}%{!?_without_tests:1}
+%if %{!?_with_tests:0}%{?_with_tests:1}
 BuildRequires:	XFree86-Xvfb
 BuildRequires:	gnuplot
 BuildRequires:	grace
 %endif
+Provides:	perl(Chart::Graph::Xmgrace::Axis_Options)
+Provides:	perl(Chart::Graph::Xmgrace::Dataset_Options)
+Provides:	perl(Chart::Graph::Xmgrace::Graph_Options)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq	"perl(Base_Option)"
 
 %description
 Graph.pm is a wrapper module that allows easy generation of graphs
@@ -39,7 +45,8 @@ wykresów: gnuplot, XRT i Xmgrace.
 echo gnuplot xmgrace | perl Makefile.PL
 %{__make}
 
-%if %{?_without_tests:0}%{!?_without_tests:1}
+# tests disabled by default as they require GUI
+%if %{!?_with_tests:0}%{?_with_tests:1}
 PATH="/usr/X11R6/bin:$PATH" %{__make} test
 %endif
 
