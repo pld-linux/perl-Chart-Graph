@@ -6,7 +6,7 @@
 %define		pdir	Chart
 %define		pnam	Graph
 Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgrace
-Summary(pl):	Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
+Summary(pl.UTF-8):   Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
 Name:		perl-Chart-Graph
 Version:	3.2
 Release:	1
@@ -35,10 +35,10 @@ Graph.pm is a wrapper module that allows easy generation of graphs
 within Perl. Currently Graph.pm supports three graphing packages,
 gnuplot, XRT, and Xmgrace.
 
-%description -l pl
-Graph.pm to modu³ obudowuj±cy pozwalaj±cy na ³atwe generowanie
-wykresów z poziomu Perla. Aktualnie obs³uguje trzy pakiety do
-wykresów: gnuplot, XRT i Xmgrace.
+%description -l pl.UTF-8
+Graph.pm to moduÅ‚ obudowujÄ…cy pozwalajÄ…cy na Å‚atwe generowanie
+wykresÃ³w z poziomu Perla. Aktualnie obsÅ‚uguje trzy pakiety do
+wykresÃ³w: gnuplot, XRT i Xmgrace.
 
 %prep
 %setup -q -n Chart-Graph-%{version}
