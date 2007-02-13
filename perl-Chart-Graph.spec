@@ -6,7 +6,7 @@
 %define		pdir	Chart
 %define		pnam	Graph
 Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgrace
-Summary(pl.UTF-8):   Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
+Summary(pl.UTF-8):	Chart::Graph - rozszerzenie Perla o interfejs do gnuplota, XRT i Xmgrace
 Name:		perl-Chart-Graph
 Version:	3.2
 Release:	1
