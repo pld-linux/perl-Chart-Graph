@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_with	tests	# perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Chart
 %define		pnam	Graph
 Summary:	Chart::Graph - Perl extension for a front-end to gnuplot, XRT, and Xmgrace
